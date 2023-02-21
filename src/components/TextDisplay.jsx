@@ -51,3 +51,5 @@ function getOffset(string, index) {
 }
 
 export default TextDisplay;
+
+
