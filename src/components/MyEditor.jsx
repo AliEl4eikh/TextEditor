@@ -24,8 +24,16 @@ const MyEditor = ({ editorState, setEditorState }) => {
     setEditorState(RichUtils.toggleInlineStyle(editorState, "ITALIC"));
   };
 
+  const _onStrikeThroughClick = () => {
+    setEditorState(RichUtils.toggleInlineStyle(editorState, "STRIKETHROUGH"));
+  }
+
+  const _onUnderlineClick = () => {
+    setEditorState(RichUtils.toggleInlineStyle(editorState, "UNDERLINE"));
+  }
+
   return (
-    <div style={styles.editor}>
+    <div className="border-2 border-gray-300 h-fit w-96 m-4 m-x-auto">
       <Editor
         ref={editor}
         placeholder="What are your thoughts?"
@@ -33,8 +41,12 @@ const MyEditor = ({ editorState, setEditorState }) => {
         onChange={setEditorState}
         handleKeyCommand={handleKeyCommand}
       />
-      <button onClick={_onBoldClick}>Bold</button>
-      <button onClick={_onItalicClick}>Italic</button>
+      <div >
+      <button className="text-sm font-bold py-2 px-4 rounded" onClick={_onBoldClick}>Bold</button>
+      <button className="text-sm font-bold italic py-2 px-4 rounded" onClick={_onItalicClick}>Italic</button>
+      <button className="text-sm font-bold italic py-2 px-4 rounded" onClick={_onStrikeThroughClick}>StrikeThrough</button>
+      <button className="text-sm font-bold italic py-2 px-4 rounded" onClick={_onUnderlineClick}>Underline</button>
+      </div>
     </div>
   );
 };
